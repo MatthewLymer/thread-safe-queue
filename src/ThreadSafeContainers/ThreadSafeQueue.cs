@@ -31,10 +31,9 @@ namespace ThreadSafeContainers
             _queue.Enqueue(value);
         }
 
-        public Task<T> DequeueAsync()
+        public T Dequeue()
         {
-            var value = _queue.Dequeue();
-            return Task.FromResult(value);
+            return _queue.Dequeue();
         }
     }
 }

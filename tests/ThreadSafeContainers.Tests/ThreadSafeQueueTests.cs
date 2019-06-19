@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using Xunit;
+﻿using Xunit;
 
 namespace ThreadSafeContainers.Tests
 {
@@ -52,14 +51,14 @@ namespace ThreadSafeContainers.Tests
         }
 
         [Fact]
-        public async Task ShouldDequeueInstantlyIfValueExistsInQueue()
+        public void ShouldDequeueInstantlyIfValueExistsInQueue()
         {
             var queue = new ThreadSafeQueue<string>();
 
             queue.Enqueue("hello");
             queue.Enqueue("world");
 
-            var actual = await queue.DequeueAsync();
+            var actual = queue.Dequeue();
 
             Assert.Equal("hello", actual);
         }
